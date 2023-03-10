@@ -1,0 +1,29 @@
+#!/bin/bash
+git clone git://git.yoctoproject.org/meta-arm
+cd meta-arm
+git checkout dunfell
+cd ..
+git clone git://git.openembedded.org/meta-openembedded
+cd meta-openembedded
+git checkout dunfell
+cd ..
+git clone https://github.com/meta-qt5/meta-qt5.git
+cd meta-qt5
+git checkout dunfell
+cd ..
+git clone git://git.yoctoproject.org/meta-raspberrypi
+cd meta-raspberrypi
+git checkout dunfell
+cd ..
+git clone git://git.yoctoproject.org/meta-ti
+cd meta-ti
+git checkout dunfell
+cd ..
+git clone git://git.yoctoproject.org/meta-virtualization
+cd meta-qt5
+git checkout dunfell
+cd ..
+git clone git://git.yoctoproject.org/poky
+cd poky
+git checkout dunfell
+cd ..
