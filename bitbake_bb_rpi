@@ -1,0 +1,7 @@
+#!/bin/bash
+cd poky
+source oe-init-build-env ../bb-build
+bitbake core-image-base
+cd ../poky
+source oe-init-build-env ../rpi-build
+bitbake core-image-base
