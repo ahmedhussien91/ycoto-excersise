@@ -1,0 +1,16 @@
+.cproject
+.gitignore.swp
+.project
+.settings/
+bb-build/bitbake-cookerdaemon.log
+bb-build/cache/
+meta-arm/
+meta-openembedded/
+meta-qt5/
+meta-raspberrypi/
+meta-ti/
+meta-virtualization/
+poky/
+rpi-build/bitbake-cookerdaemon.log
+rpi-build/cache/
+
