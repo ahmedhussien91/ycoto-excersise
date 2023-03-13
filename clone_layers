@@ -20,7 +20,7 @@ cd meta-ti
 git checkout dunfell
 cd ..
 git clone git://git.yoctoproject.org/meta-virtualization
-cd meta-qt5
+cd meta-virtualization
 git checkout dunfell
 cd ..
 git clone git://git.yoctoproject.org/poky
