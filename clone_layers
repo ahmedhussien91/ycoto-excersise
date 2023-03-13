@@ -27,3 +27,9 @@ git clone git://git.yoctoproject.org/poky
 cd poky
 git checkout dunfell
 cd ..
+export CURRENT_DIR=$PWD
+export REPO_DIR=$(cd ..; pwd)
+sed -i "s/\$REPO_DIR/${REPO_DIR}/g" rpi-build/conf/local.conf
+sed -i "s/\$REPO_DIR\/layers/${PWD}/g" rpi-build/conf/bblayers.conf
+sed -i "s/\$REPO_DIR/${REPO_DIR}/g" bb-build/conf/local.conf
+sed -i "s/\$REPO_DIR\/layers/${PWD}/g" bb-build/conf/bblayers.conf
