@@ -5,11 +5,11 @@ SECTION = "console"
 LICENSE = "MIT"
 
 SRC_URI = "git://github.com/ahmedhussien91/posix-app.git;protcol=https;branch=main"
-SRCREV = "77a7457f9ec031b7a0ca2c3862fcae62811c9caa"
+SRCREV = "693c11bd4844e85f795bd4b960f842a7bdf8a75d"
 
 S = "${WORKDIR}/git"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-# LIC_FILES_CHKSUM = "file://${WORKDIR}/MIT;md5=5c94767cedb5d6987c902ac850ded2c6" use if the license if on git  
+# LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+# LIC_FILES_CHKSUM = "file://${WORKDIR}/MIT;;md5=0835ade698e0bcf8506ecda2f7b4f302" use if the license if on git  
 
 inherit cmake
-
