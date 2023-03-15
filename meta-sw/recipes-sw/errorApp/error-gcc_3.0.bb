@@ -7,6 +7,7 @@ S="${WORKDIR}/src"
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 
+# compile with STATIC libraries
 do_compile(){
 	$CC -o erro-app main.c ${STAGING_LIBDIR}/libgetnum.a ${STAGING_LIBDIR}/liberrorfun.a
 }
