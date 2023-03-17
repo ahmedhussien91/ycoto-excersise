@@ -1,0 +1,8 @@
+[Unit]
+Description=erro-app server
+[Service]
+Type=simple
+ExecStart=/usr/bin/erro-app
+
+[Install]
+WantedBy=multi-user.target
