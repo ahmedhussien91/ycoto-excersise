@@ -2,6 +2,10 @@
 cd poky
 source oe-init-build-env ../bb-build
 bitbake custom-image
+bitbake meta-toolchain
+bitbake -c populate_sdk custom-image
 cd ../poky
 source oe-init-build-env ../rpi-build
 bitbake custom-image
+bitbake meta-toolchain
+bitbake -c populate_sdk custom-image
