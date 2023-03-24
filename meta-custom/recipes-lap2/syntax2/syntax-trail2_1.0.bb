@@ -18,10 +18,20 @@ C = "foo"
 #B := "${C} bar"
 #C := "foo"
 
+
+# uncomment this and comment lines above and see the behavior
+#B = "${C} bar"
+#C = "foo"
+#A = "${F} baz"
+#ABS = "${F}"
+
 python do_display() {
     bb.plain("variable A: " + d.getVar("A"));
     bb.plain("variable B: " + d.getVar("B"));
     bb.plain("variable C: " + d.getVar("C"));
+    #    d.setVar("F", "55")
+    bb.plain("variable C: " + d.getVar("ABS"));
 }
 
 addtask display before do_build
+# addtask display
