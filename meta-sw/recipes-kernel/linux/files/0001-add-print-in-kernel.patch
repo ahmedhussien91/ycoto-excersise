@@ -1,0 +1,32 @@
+From 648d06228cdc98795b769f3cebd1b8434a789a33 Mon Sep 17 00:00:00 2001
+From: ahmed_hussien <a.hussien.91@gmail.com>
+Date: Sat, 25 Mar 2023 12:56:46 +0000
+Subject: [PATCH] add print in kernel
+
+---
+ init/main.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/init/main.c b/init/main.c
+index d8bfe61b5a88..237831b476ef 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -1050,6 +1050,7 @@ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
+ 	arch_post_acpi_subsys_init();
+ 	sfi_init_late();
+ 	kcsan_init();
++	pr_info("Hellooooooooooooooooo from kernelllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+ 
+ 	/* Do the rest non-__init'ed, we're now alive */
+ 	arch_call_rest_init();
+@@ -1465,6 +1466,7 @@ static int __ref kernel_init(void *unused)
+ 	    !try_to_run_init_process("/etc/init") ||
+ 	    !try_to_run_init_process("/bin/init") ||
+ 	    !try_to_run_init_process("/bin/sh"))
++		pr_info("Hellooooooooooooooooo from kernelllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+ 		return 0;
+ 
+ 	panic("No working init found.  Try passing init= option to kernel. "
+-- 
+2.34.1
+
