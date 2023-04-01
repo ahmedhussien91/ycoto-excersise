@@ -1,0 +1,10 @@
+cd poky
+source oe-init-build-env ../bb-build
+bitbake custom-image
+cd ..
+sudo cp ../tmp/deploy/images/beaglebone/zImage /srv/tftp/zImage_custom-image
+sudo cp ../tmp/deploy/images/beaglebone/am335x-boneblack.dtb /srv/tftp/am335x-boneblack.dtb
+rm -rf /home/ahmed/custom_img
+mkdir /home/ahmed/custom_img
+sudo tar -xvf ../tmp/deploy/images/beaglebone/custom-image-beaglebone.tar -C /home/ahmed/custom_img/
+
