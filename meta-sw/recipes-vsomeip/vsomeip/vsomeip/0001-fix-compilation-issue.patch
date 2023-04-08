@@ -1,0 +1,22 @@
+From 3749b4a8e8f5822dc46b8ab8bdf686cb2c2d1589 Mon Sep 17 00:00:00 2001
+From: ahmed_hussien <a.hussien.91@gmail.com>
+Date: Sat, 1 Apr 2023 13:51:20 +0200
+Subject: [PATCH] fix compilation issue
+
+---
+ implementation/routing/src/routing_manager_impl.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/implementation/routing/src/routing_manager_impl.cpp b/implementation/routing/src/routing_manager_impl.cpp
+index 4ebca55..5e36d7c 100644
+--- a/implementation/routing/src/routing_manager_impl.cpp
++++ b/implementation/routing/src/routing_manager_impl.cpp
+@@ -4351,7 +4351,7 @@ void routing_manager_impl::memory_log_timer_cbk(
+     std::uint64_t its_data(0);
+     std::uint64_t its_dirtypages(0);
+ 
+-    if (EOF == std::fscanf(its_file, "%lu %lu %lu %lu %lu %lu %lu", &its_size,
++    if (EOF == std::fscanf(its_file, "%llu %llu %llu %llu %llu %llu %llu", &its_size,
+                     &its_rsssize, &its_sharedpages, &its_text, &its_lib,
+                     &its_data, &its_dirtypages)) {
+         VSOMEIP_ERROR<< "memory_log_timer_cbk: error reading:"

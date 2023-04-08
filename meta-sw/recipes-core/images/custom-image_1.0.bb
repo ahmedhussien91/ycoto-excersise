@@ -10,6 +10,7 @@ LICENSE = "MIT"
 IMAGE_INSTALL_append = " openssh \
 			error-gcc \
 			readapp \
+			vsomeip \
 			"
 
 IMAGE_FSTYPES_append = " wic tar"
