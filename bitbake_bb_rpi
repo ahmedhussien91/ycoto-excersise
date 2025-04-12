@@ -1,26 +1,30 @@
 #!/bin/bash
+# Create a virtual environment
+python3.11 -m venv yocto-venv
+source yocto-venv/bin/activate
+
 cd poky
-source oe-init-build-env ../bb-build
+#source oe-init-build-env ../bb-build
+#bitbake custom-image
+#bitbake meta-toolchain
+#bitbake -c populate_sdk custom-image
+#bitbake -c populate_sdk_ext custom-image
+#cd ../poky
+#source oe-init-build-env ../rpi-build
+#bitbake custom-image
+#bitbake meta-toolchain
+#bitbake -c populate_sdk custom-image
+#bitbake -c populate_sdk_ext custom-image
+cd ../poky
+source oe-init-build-env ../bb-build-sysv
 bitbake custom-image
 bitbake meta-toolchain
 bitbake -c populate_sdk custom-image
 bitbake -c populate_sdk_ext custom-image
 cd ../poky
-source oe-init-build-env ../rpi-build
+source oe-init-build-env ../rpi-build-sysv
 bitbake custom-image
 bitbake meta-toolchain
 bitbake -c populate_sdk custom-image
 bitbake -c populate_sdk_ext custom-image
-# cd ../poky
-# source oe-init-build-env ../bb-build-sysv
-# bitbake custom-image
-# bitbake meta-toolchain
-# bitbake -c populate_sdk custom-image
-# bitbake -c populate_sdk_ext custom-image
-# cd ../poky
-# source oe-init-build-env ../rpi-build-sysv
-# bitbake custom-image
-# bitbake meta-toolchain
-# bitbake -c populate_sdk custom-image
-# bitbake -c populate_sdk_ext custom-image
 

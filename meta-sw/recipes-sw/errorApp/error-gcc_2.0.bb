@@ -7,7 +7,7 @@ S="${WORKDIR}/src"
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 
-do_compile_append(){
+do_compile:append(){
 	echo "working directory: $PWD"
 	echo "make is called by default......."
 }

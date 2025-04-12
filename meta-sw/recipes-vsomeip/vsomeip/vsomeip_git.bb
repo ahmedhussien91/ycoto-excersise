@@ -9,17 +9,14 @@
 # represented as "Unknown" below, you will need to check them yourself:
 #   LICENSE
 #   LICENSE_boost
-LICENSE = "Unknown"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=9741c346eef56131163e13b9db1241b3 \
-                    file://LICENSE_boost;md5=55a0dc970982f51bfe9b4c6ae0a68d1e"
-
-SRC_URI = "git://github.com/COVESA/vsomeip.git;protocol=https;branch=master \
-           file://0001-fix-compilation-issue.patch \
-           "
+LICENSE = "MPL-2.0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=9741c346eef56131163e13b9db1241b3"
+SRC_URI = "git://github.com/COVESA/vsomeip.git;protocol=https;branch=master "
+#           file://0001-fix-compilation-issue.patch "
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "331b71e6ea0241f51e80f9ba5c3fbe917c731dba"
+SRCREV = "1df6987710999c41e37499af09f31c08a1eb5982"
 
 S = "${WORKDIR}/git"
 
@@ -35,7 +32,7 @@ EXTRA_OECMAKE = ""
 
 
 # add files to vsomeip package 
-FILES_${PN} += "/usr/etc \
+FILES:${PN} += "/usr/etc \
   /usr/etc/vsomeip \
   /usr/etc/vsomeip/vsomeip-udp-service.json \
   /usr/etc/vsomeip/vsomeip-local.json \
@@ -43,4 +40,7 @@ FILES_${PN} += "/usr/etc \
   /usr/etc/vsomeip/vsomeip-tcp-client.json \
   /usr/etc/vsomeip/vsomeip-tcp-service.json \
   /usr/etc/vsomeip/vsomeip-udp-client.json \
+  ${bindir}/ \
+  ${libdir}/ \
+  ${sysconfdir}/ \
 "

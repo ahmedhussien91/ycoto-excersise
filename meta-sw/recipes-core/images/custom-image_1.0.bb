@@ -3,17 +3,20 @@ hardware."
 
 inherit core-image
 
-IMAGE_FEATURES += "splash"
 LICENSE = "MIT"
 
+IMAGE_BOOT_FILES += "bcm2711-rpi-4-b.dtb overlays/*.dtb"
+IMAGE_BOOT_FILES:raspberrypi4-64 += "Image"
+IMAGE_BOOT_FILES:beaglebone += "zImage" 
 
-IMAGE_INSTALL_append = " openssh \
+IMAGE_INSTALL:append = " openssh \
 			error-gcc \
 			readapp \
 			vsomeip \
 			"
 
-IMAGE_FSTYPES_append = " wic tar"
+IMAGE_FSTYPES:append = " wic tar"
+BOOT_SPACE_ALIGNED = "128000"
 
 # you can specify package
 # IMAGE_INSTALL_append = "error-gcc-dev"
