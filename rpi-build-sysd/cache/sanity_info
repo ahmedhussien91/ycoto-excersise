@@ -1,0 +1,4 @@
+SANITY_VERSION 1
+TMPDIR /opt/yocto/tmp
+SSTATE_DIR /opt/yocto/sstate-cache
+NATIVELSBSTRING ubuntu-24.04

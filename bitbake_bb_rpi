@@ -1,30 +1,51 @@
 #!/bin/bash
+# Function to display usage
+usage() {
+    echo "Usage: $0 -h <hardware> -d <distribution> -t <target>"
+    echo "  -h <hardware>     : Specify the hardware (rpi for Raspberry Pi, bb for BeagleBone)"
+    echo "  -d <distribution> : Specify the distribution (sysv for sysvinit, sysd for systemd)"
+    echo "  -t <target>       : Specify the target (e.g., custom-image, meta-toolchain, etc.)"
+    exit 1
+}
+
+# Parse command-line arguments
+while getopts "h:d:t:" opt; do
+    case $opt in
+        h) HARDWARE="$OPTARG" ;;
+        d) DISTRIBUTION="$OPTARG" ;;
+        t) TARGET="$OPTARG" ;;
+        *) usage ;;
+    esac
+done
+
+# Validate arguments
+if [ -z "$HARDWARE" ] || [ -z "$DISTRIBUTION" ] || [ -z "$TARGET" ]; then
+    usage
+fi
+
+if [[ "$HARDWARE" != "rpi" && "$HARDWARE" != "bb" ]]; then
+    echo "Error: Invalid hardware. Use 'rpi' for Raspberry Pi or 'bb' for BeagleBone."
+    usage
+fi
+
+if [[ "$DISTRIBUTION" != "sysv" && "$DISTRIBUTION" != "sysd" ]]; then
+    echo "Error: Invalid distribution. Use 'sysv' for sysvinit or 'sysd' for systemd."
+    usage
+fi
+
+# Determine build directory based on hardware and distribution
+BUILD_DIR="${HARDWARE}-build-${DISTRIBUTION}"
+
 # Create a virtual environment
 python3.11 -m venv yocto-venv
 source yocto-venv/bin/activate
 
+# Navigate to the poky directory
 cd poky
-#source oe-init-build-env ../bb-build
-#bitbake custom-image
-#bitbake meta-toolchain
-#bitbake -c populate_sdk custom-image
-#bitbake -c populate_sdk_ext custom-image
-#cd ../poky
-#source oe-init-build-env ../rpi-build
-#bitbake custom-image
-#bitbake meta-toolchain
-#bitbake -c populate_sdk custom-image
-#bitbake -c populate_sdk_ext custom-image
-cd ../poky
-source oe-init-build-env ../bb-build-sysv
-bitbake custom-image
-bitbake meta-toolchain
-bitbake -c populate_sdk custom-image
-bitbake -c populate_sdk_ext custom-image
-cd ../poky
-source oe-init-build-env ../rpi-build-sysv
-bitbake custom-image
-bitbake meta-toolchain
-bitbake -c populate_sdk custom-image
-bitbake -c populate_sdk_ext custom-image
 
+# Source the environment and build the specified target
+source oe-init-build-env "../$BUILD_DIR"
+bitbake "$TARGET"
+
+# Deactivate the virtual environment
+deactivate
