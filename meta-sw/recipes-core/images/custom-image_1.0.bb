@@ -22,15 +22,18 @@ IMAGE_INSTALL:append = " \
     packagegroup-core-tools-profile \
     packagegroup-core-tools-testapps \
     packagegroup-core-x11-base \
+    packagegroup-core-x11-xserver \
 "
 IMAGE_INSTALL:append = " xkeyboard-config"
 IMAGE_INSTALL:append = " cinematicexperience"
 IMAGE_INSTALL:append = " x11vnc"
-# IMAGE_INSTALL:append = " qt5-qmake qtbase qtdeclarative qtbase-plugins qtdeclarative-plugins qttools"
+IMAGE_INSTALL:append = " qtbase qtdeclarative qtbase-plugins qtdeclarative-plugins qttools"
+IMAGE_INSTALL:append = " testapp qt-app qt-example fontconfig"
+
 
 IMAGE_FSTYPES:append = " tar.gz ext4 wic tar"
-INITRAMFS_IMAGE:beaglebone = "initramfs-image"
-INITRAMFS_IMAGE_BUNDLE:beaglebone = "1"
+# INITRAMFS_IMAGE:beaglebone = "initramfs-image"
+# INITRAMFS_IMAGE_BUNDLE:beaglebone = "1"
 # BOOT_SPACE_ALIGNED = "131072" # 128MB 
 
 # you can specify package

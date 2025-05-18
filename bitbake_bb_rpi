@@ -7,7 +7,11 @@ usage() {
     echo "  -t <target>       : Specify the target (e.g., custom-image, meta-toolchain, etc.)"
     exit 1
 }
-
+OPTIND=1
+# Default values
+HARDWARE=""
+DISTRIBUTION=""
+TARGET=""
 # Parse command-line arguments
 while getopts "h:d:t:" opt; do
     case $opt in
@@ -35,6 +39,14 @@ fi
 
 # Determine build directory based on hardware and distribution
 BUILD_DIR="${HARDWARE}-build-${DISTRIBUTION}"
+echo "Building for $HARDWARE with $DISTRIBUTION distribution in $BUILD_DIR directory."
+
+# Check if the build directory already exists
+if [ -d "$BUILD_DIR" ]; then
+    echo "Warning: Build directory $BUILD_DIR already exists. It will be reused."
+else
+    mkdir "$BUILD_DIR"
+fi
 
 # Create a virtual environment
 python3.11 -m venv yocto-venv
@@ -44,7 +56,9 @@ source yocto-venv/bin/activate
 cd poky
 
 # Source the environment and build the specified target
+echo source oe-init-build-env "../$BUILD_DIR"
 source oe-init-build-env "../$BUILD_DIR"
+echo bitbake "$TARGET"
 bitbake "$TARGET"
 
 # Deactivate the virtual environment
