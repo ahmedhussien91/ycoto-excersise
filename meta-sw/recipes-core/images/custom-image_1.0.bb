@@ -28,7 +28,7 @@ IMAGE_INSTALL:append = " xkeyboard-config"
 IMAGE_INSTALL:append = " cinematicexperience"
 IMAGE_INSTALL:append = " x11vnc"
 IMAGE_INSTALL:append = " qtbase qtdeclarative qtbase-plugins qtdeclarative-plugins qttools"
-IMAGE_INSTALL:append = " testapp qt-app qt-example fontconfig"
+IMAGE_INSTALL:append = " qt-app qt-example fontconfig"
 
 
 IMAGE_FSTYPES:append = " tar.gz ext4 wic tar"

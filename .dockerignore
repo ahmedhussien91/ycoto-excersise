@@ -1,1 +1,8 @@
 meta-arm/
+meta-raspberrypi/
+meta-ti/
+meta-openembedded/
+meta-qt5/
+meta-virtualization/
+poky/
+tmp/

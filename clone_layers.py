@@ -16,12 +16,12 @@ REPOS = [
 ]
 
 CONF_PATCHES = [
-    ("rpi-build/conf/local.conf", "s@\\$REPO_DIR@{repo_dir}@g"),
-    ("rpi-build/conf/bblayers.conf", "s@\\$REPO_DIR/layers@{layers_dir}@g"),
-    ("bb-build/conf/local.conf", "s@\\$REPO_DIR@{repo_dir}@g"),
-    ("bb-build/conf/bblayers.conf", "s@\\$REPO_DIR/layers@{layers_dir}@g"),
-    ("bb-build-sysv/conf/local.conf", "s@\\$REPO_DIR@{repo_dir}@g"),
-    ("bb-build-sysv/conf/bblayers.conf", "s@\\$REPO_DIR/layers@{layers_dir}@g"),
+    ("rpi-build/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
+    ("rpi-build/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
+    ("bb-build/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
+    ("bb-build/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
+    ("bb-build-sysv/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
+    ("bb-build-sysv/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
 ]
 
 def run(cmd, cwd=None):
@@ -40,7 +40,21 @@ def patch_conf_files(repo_dir, layers_dir):
     for conf_file, sed_expr in CONF_PATCHES:
         if os.path.exists(conf_file):
             expr = sed_expr.format(repo_dir=repo_dir, layers_dir=layers_dir)
+            print(f"Patching {conf_file} with: sed -i {expr} {conf_file}")
+            # Read original lines for comparison
+            with open(conf_file, "r", encoding="utf-8") as f:
+                original_lines = f.readlines()
             run(["sed", "-i", expr, conf_file])
+            # Read new lines and print changes
+            with open(conf_file, "r", encoding="utf-8") as f:
+                new_lines = f.readlines()
+            for i, (orig, new) in enumerate(zip(original_lines, new_lines), 1):
+                if orig != new:
+                    print(f"Line {i} changed:\n- {orig.rstrip()}\n+ {new.rstrip()}")
+            # If file got longer, print added lines
+            if len(new_lines) > len(original_lines):
+                for i in range(len(original_lines), len(new_lines)):
+                    print(f"Line {i+1} added:\n+ {new_lines[i].rstrip()}")
         else:
             print(f"Warning: {conf_file} does not exist, skipping.")
 
