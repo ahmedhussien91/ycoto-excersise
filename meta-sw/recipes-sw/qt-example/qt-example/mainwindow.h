@@ -17,9 +17,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 private slots:
-    void on_pushButton_clicked();
-
+    void on_ConnectPB_clicked();
+    void on_IncrementCountPB_clicked();
+    void on_DecrementCountPB_clicked();
+    void on_UnamePB_clicked();
+    
 private:
     Ui::MainWindow *ui;
+    int count; // Variable to keep track of the count
 };
 #endif // MAINWINDOW_H

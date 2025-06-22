@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>180</width>
-    <height>88</height>
+    <width>654</width>
+    <height>338</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="ConnectPB">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -24,7 +24,59 @@
      </rect>
     </property>
     <property name="text">
-     <string>send message</string>
+     <string>connect</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="IncrementCountPB">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>10</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>increment count</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DecrementCountPB">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>10</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>decrement count</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="UnamePB">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>uname</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="outputLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>621</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -33,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>180</width>
+     <width>654</width>
      <height>23</height>
     </rect>
    </property>

@@ -2,8 +2,9 @@
 .gitignore.swp
 .project
 .settings/
-bb-build/bitbake-cookerdaemon.log
-bb-build/cache/
+bb-build*/bitbake-cookerdaemon.log
+bb-build*/cache/
+bb-build*/deploy-ti/
 meta-arm/
 meta-openembedded/
 meta-qt5/
@@ -11,6 +12,18 @@ meta-raspberrypi/
 meta-ti/
 meta-virtualization/
 poky/
-rpi-build/bitbake-cookerdaemon.log
-rpi-build/cache/
+rpi-build*/bitbake-cookerdaemon.log
+rpi-build*/cache/
+yocto-venv/
 
+bb-build-sysd/bitbake-cookerdaemon.log
+bb-build-sysd/bitbake.lock
+bb-build-sysd/cache/bb_codeparser.dat
+bb-build-sysv/conf/conf-notes.txt
+bb-build-sysv/conf/conf-summary.txt
+meta-section/COPYING.MIT
+.vscode/settings.json
+rpi-build-sysv/conf/conf-summary.txt
+rpi-build-sysv/conf/conf-notes.txt
+rpi-build-sysd/cache/bb_codeparser.dat
+rpi-build-sysd/bitbake-cookerdaemon.log
