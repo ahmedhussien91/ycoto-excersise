@@ -16,10 +16,12 @@ REPOS = [
 ]
 
 CONF_PATCHES = [
-    ("rpi-build/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
-    ("rpi-build/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
-    ("bb-build/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
-    ("bb-build/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
+    ("rpi-build-sysv/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
+    ("rpi-build-sysv/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
+    ("rpi-build-sysd/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
+    ("rpi-build-sysd/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
+    ("bb-build-sysd/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
+    ("bb-build-sysd/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
     ("bb-build-sysv/conf/local.conf", "s|\\$REPO_DIR|{repo_dir}|g"),
     ("bb-build-sysv/conf/bblayers.conf", "s|\\$REPO_DIR|{layers_dir}|g"),
 ]
